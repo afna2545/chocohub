@@ -1,0 +1,974 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ChocoHub — The Art of Chocolate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --espresso: #21130f;
+    --brown: #352019;
+    --cream: #f7f1e8;
+    --gold: #c5a477;
+    --muted: #a99b8e;
+    --white: #fffaf3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--espresso);
+    font-family: 'DM Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Announcement */
+
+.announcement {
+    background: var(--espresso);
+    color: var(--cream);
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Navigation */
+
+header {
+    height: 82px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cream);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    letter-spacing: -1px;
+    font-weight: 600;
+}
+
+.logo span {
+    color: #a77b48;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav a {
+    font-size: 12px;
+    color: #66574c;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #a77b48;
+}
+
+.nav-order {
+    border: 1px solid var(--espresso);
+    padding: 12px 22px;
+    color: var(--espresso);
+}
+
+.nav-order:hover {
+    background: var(--espresso);
+    color: var(--cream);
+}
+
+/* Hero */
+
+.hero {
+    background: var(--espresso);
+    color: var(--white);
+    padding: 35px 5% 35px 8%;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 55px;
+    min-height: 590px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(42px, 5vw, 69px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+.hero h1 em {
+    color: var(--gold);
+    font-weight: 400;
+}
+
+.hero-text {
+    max-width: 410px;
+    color: #c9bcb0;
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.button-gold {
+    background: var(--gold);
+    color: var(--espresso);
+}
+
+.button-gold:hover {
+    background: var(--white);
+    transform: translateY(-3px);
+}
+
+.button-outline {
+    border: 1px solid #8b7663;
+    color: var(--white);
+    margin-left: 8px;
+}
+
+.button-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.hero-visual {
+    height: 500px;
+    position: relative;
+}
+
+.hero-visual img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-tag {
+    position: absolute;
+    right: -12px;
+    bottom: 25px;
+    background: var(--cream);
+    color: var(--espresso);
+    padding: 18px 23px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+}
+
+.hero-tag small {
+    display: block;
+    margin-top: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    color: #867262;
+    letter-spacing: 1px;
+}
+
+/* Values */
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 34px 8%;
+    background: #eee5d9;
+}
+
+.value {
+    text-align: center;
+    padding: 5px 20px;
+    border-right: 1px solid #d7c8b7;
+}
+
+.value:last-child {
+    border: none;
+}
+
+.value span {
+    display: block;
+    color: #a77b48;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.value h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.value p {
+    font-size: 11px;
+    color: #7b6b5e;
+}
+
+/* Collection */
+
+.collection {
+    padding: 100px 8%;
+}
+
+.section-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 38px;
+}
+
+.section-top .eyebrow {
+    color: #9c754b;
+    margin-bottom: 12px;
+}
+
+.section-top h2,
+.story h2,
+.gift h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(34px, 4vw, 48px);
+    line-height: 1.2;
+}
+
+.section-top h2 em,
+.story h2 em,
+.gift h2 em {
+    color: #a77b48;
+    font-weight: 400;
+}
+
+.text-link {
+    font-size: 11px;
+    border-bottom: 1px solid #a77b48;
+    padding-bottom: 6px;
+    white-space: nowrap;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+}
+
+.product {
+    min-width: 0;
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    background: #e3d6c6;
+}
+
+.product-image img {
+    height: 335px;
+    transition: transform .6s;
+}
+
+.product:hover .product-image img {
+    transform: scale(1.045);
+}
+
+.product-label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--cream);
+    padding: 8px 11px;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.product-info {
+    padding: 19px 2px;
+}
+
+.product-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+.product-info p {
+    color: #827266;
+    font-size: 11px;
+    line-height: 1.8;
+    min-height: 40px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd0c0;
+    padding-top: 14px;
+    margin-top: 15px;
+}
+
+.price {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.buy-link {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #966d43;
+}
+
+/* Brand Story */
+
+.story {
+    background: #e9dfd2;
+    padding: 85px 8%;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.story-image {
+    position: relative;
+}
+
+.story-image img {
+    height: 450px;
+}
+
+.story-image::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: -14px;
+    bottom: -14px;
+    border: 1px solid #b89a75;
+    pointer-events: none;
+}
+
+.story .eyebrow {
+    color: #9c754b;
+    margin-bottom: 20px;
+}
+
+.story h2 {
+    margin-bottom: 24px;
+}
+
+.story p {
+    color: #78685a;
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 18px;
+}
+
+.story .button {
+    margin-top: 10px;
+}
+
+/* Quote */
+
+.quote {
+    background: var(--espresso);
+    color: var(--white);
+    text-align: center;
+    padding: 80px 8%;
+}
+
+.quote .eyebrow {
+    margin-bottom: 20px;
+}
+
+.quote h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 43px);
+    line-height: 1.5;
+    max-width: 780px;
+    margin: auto;
+}
+
+.quote h2 em {
+    color: var(--gold);
+}
+
+.quote p {
+    margin-top: 24px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+/* Gifts */
+
+.gift {
+    padding: 90px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.gift-visual img {
+    height: 360px;
+}
+
+.gift .eyebrow {
+    color: #9c754b;
+}
+
+.gift h2 {
+    margin-bottom: 20px;
+}
+
+.gift p {
+    color: #78685a;
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+/* Footer */
+
+footer {
+    background: #170c09;
+    color: var(--white);
+    padding: 50px 8% 25px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 30px;
+    padding-bottom: 35px;
+}
+
+.footer-brand p {
+    color: #b5a294;
+    font-size: 11px;
+    margin-top: 13px;
+    line-height: 1.8;
+    max-width: 280px;
+}
+
+.footer-links h4 {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.footer-links a {
+    display: block;
+    color: #c6b8ab;
+    font-size: 11px;
+    margin-bottom: 12px;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid #ffffff20;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #a99b8e;
+    font-size: 10px;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+    header {
+        padding: 20px 5%;
+        height: auto;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    nav {
+        gap: 17px;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 7%;
+    }
+
+    .hero-visual {
+        height: 390px;
+    }
+
+    .collection,
+    .story,
+    .gift {
+        padding: 65px 6%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .story {
+        gap: 35px;
+    }
+
+    .story-image img {
+        height: 360px;
+    }
+
+    .product-image img {
+        height: 270px;
+    }
+}
+
+@media (max-width: 550px) {
+    .announcement {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    nav {
+        width: 100%;
+        gap: 14px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .nav-order {
+        padding: 9px 12px;
+    }
+
+    .hero {
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: 47px;
+    }
+
+    .hero-visual {
+        height: 310px;
+    }
+
+    .hero-tag {
+        right: 5px;
+        bottom: 12px;
+    }
+
+    .button {
+        padding: 14px 16px;
+        font-size: 9px;
+    }
+
+    .button-outline {
+        margin-left: 4px;
+    }
+
+    .values {
+        grid-template-columns: 1fr;
+        padding: 15px 8%;
+    }
+
+    .value {
+        border-right: none;
+        border-bottom: 1px solid #d7c8b7;
+        padding: 20px 10px;
+    }
+
+    .section-top {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .product-image img {
+        height: 320px;
+    }
+
+    .story,
+    .gift {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .story-image img {
+        height: 300px;
+    }
+
+    .gift-visual img {
+        height: 280px;
+    }
+
+    .quote {
+        padding: 60px 7%;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+    A little luxury, handcrafted with love · Welcome to ChocoHub
+</div>
+
+<header>
+    <a href="#home" class="logo">Choco<span>Hub.</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#story">Our Story</a>
+        <a href="#gifting">Gifting</a>
+        <a href="#gifting" class="nav-order">Shop Chocolates ↗</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+        <div class="eyebrow">Small batches. Beautiful moments.</div>
+
+        <h1>
+            The art of<br>
+            making life<br>
+            a little more<br>
+            <em>chocolate.</em>
+        </h1>
+
+        <p class="hero-text">
+            Thoughtfully handcrafted chocolates, made for slow moments,
+            heartfelt gifting and the little joys that make life beautiful.
+            Welcome to your new favourite chocolate destination.
+        </p>
+
+        <a href="#collection" class="button button-gold">
+            Discover the collection ↗
+        </a>
+
+        <a href="#story" class="button button-outline">
+            Our story
+        </a>
+    </div>
+
+    <div class="hero-visual">
+        <img
+            src="https://images.unsplash.com/photo-1548907040-4d42e3c8a3a8?auto=format&fit=crop&w=1200&q=85"
+            alt="An indulgent selection of chocolates"
+        >
+
+        <div class="hero-tag">
+            Made with love.
+            <small>THE CHOCOHUB SIGNATURE</small>
+        </div>
+    </div>
+
+</section>
+
+<!-- VALUES -->
+
+<section class="values">
+    <div class="value">
+        <span>01</span>
+        <h3>Made by Hand</h3>
+        <p>Thoughtful details in every batch.</p>
+    </div>
+
+    <div class="value">
+        <span>02</span>
+        <h3>Made to Delight</h3>
+        <p>Little luxuries for everyday life.</p>
+    </div>
+
+    <div class="value">
+        <span>03</span>
+        <h3>Made for Gifting</h3>
+        <p>Beautiful treats for special people.</p>
+    </div>
+</section>
+
+<!-- COLLECTION -->
+
+<section class="collection" id="collection">
+
+    <div class="section-top">
+        <div>
+            <div class="eyebrow">A carefully crafted collection</div>
+            <h2>Something <em>irresistible.</em></h2>
+        </div>
+
+        <a href="#gifting" class="text-link">EXPLORE ALL →</a>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <div class="product-image">
+                <img
+                    src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=800&q=85"
+                    alt="Dark chocolate pieces"
+                    loading="lazy"
+                >
+                <span class="product-label">The Classic</span>
+            </div>
+
+            <div class="product-info">
+                <h3>Midnight Cocoa</h3>
+                <p>A deep, rich chocolate experience for the true cocoa lover.</p>
+
+                <div class="product-bottom">
+                    <span class="price">₹249</span>
+                    <a href="#gifting" class="buy-link">DISCOVER ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img
+                    src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=85"
+                    alt="Milk chocolate treats"
+                    loading="lazy"
+                >
+                <span class="product-label">A Customer Favourite</span>
+            </div>
+
+            <div class="product-info">
+                <h3>Velvet Milk</h3>
+                <p>Silky, creamy chocolate for your everyday sweet cravings.</p>
+
+                <div class="product-bottom">
+                    <span class="price">₹199</span>
+                    <a href="#gifting" class="buy-link">DISCOVER ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="product">
+            <div class="product-image">
+                <img
+                    src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=85"
+                    alt="Chocolate truffles"
+                    loading="lazy"
+                >
+                <span class="product-label">The Indulgence</span>
+            </div>
+
+            <div class="product-info">
+                <h3>Golden Truffles</h3>
+                <p>Elegant chocolate bites for moments worth celebrating.</p>
+
+                <div class="product-bottom">
+                    <span class="price">₹299</span>
+                    <a href="#gifting" class="buy-link">DISCOVER ↗</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<!-- STORY -->
+
+<section class="story" id="story">
+
+    <div class="story-image">
+        <img
+            src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=85"
+            alt="Handcrafted chocolate preparation"
+            loading="lazy"
+        >
+    </div>
+
+    <div>
+        <div class="eyebrow">A little about us</div>
+
+        <h2>
+            Not just chocolate.<br>
+            A feeling of <em>home.</em>
+        </h2>
+
+        <p>
+            ChocoHub began with a simple love for chocolate and the happiness
+            of sharing something homemade with the people we love.
+        </p>
+
+        <p>
+            We bring that same warmth to every creation, combining a personal
+            touch with a premium presentation. Each box is an invitation to
+            pause, indulge and make a memory.
+        </p>
+
+        <a href="#gifting" class="button button-gold">
+            A taste of ChocoHub ↗
+        </a>
+    </div>
+
+</section>
+
+<!-- BRAND QUOTE -->
+
+<section class="quote">
+    <div class="eyebrow">Our little philosophy</div>
+
+    <h2>
+        "Happiness is homemade.<br>
+        Sometimes, it comes wrapped<br>
+        in <em>chocolate.</em>"
+    </h2>
+
+    <p>WITH LOVE, FROM CHOCOHUB</p>
+</section>
+
+<!-- GIFTING -->
+
+<section class="gift" id="gifting">
+
+    <div>
+        <div class="eyebrow">For the moments that matter</div>
+
+        <h2>
+            Give a little<br>
+            <em>something sweet.</em>
+        </h2>
+
+        <p>
+            Birthdays, celebrations, thoughtful surprises or simply a gift
+            to yourself. Make every occasion a little more memorable with
+            handcrafted chocolate treats from ChocoHub.
+        </p>
+
+        <a
+            class="button button-gold"
+            href="https://wa.me/91XXXXXXXXXX?text=Hello%20ChocoHub%2C%20I%20would%20like%20to%20know%20about%20your%20chocolates."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Enquire on WhatsApp ↗
+        </a>
+    </div>
+
+    <div class="gift-visual">
+        <img
+            src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=85"
+            alt="Chocolate gift inspiration"
+            loading="lazy"
+        >
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <a href="#home" class="logo">Choco<span>Hub.</span></a>
+            <p>
+                A little luxury, a lots of love.
+                Handcrafted chocolate for life's sweetest moments.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h4>EXPLORE</h4>
+            <a href="#home">Home</a>
+            <a href="#collection">Our Collection</a>
+            <a href="#story">Our Story</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>GET IN TOUCH</h4>
+            <a href="#gifting">Chocolate Enquiries</a>
+            <a href="https://wa.me/91XXXXXXXXXX">WhatsApp</a>
+            <a href="#gifting">Gift Orders</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 ChocoHub. All rights reserved.</p>
+        <p>HANDCRAFTED WITH LOVE ♡</p>
+    </div>
+</footer>
+
+</body>
+</html>
